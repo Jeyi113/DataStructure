@@ -1,0 +1,18 @@
+## 1.2. What's the running time of the `binarySearch_1()` is N in Big-Oh representation, when the size of `list_in`? Explain why you think like that.
+
+1. Write your Answer in the blank: 
+
+   binarySearch_1() runs in O(log N)  
+
+2. Explain your reason below:
+  
+  The running time on the list operation list[index] is O(1), list slicing is O(N/2) at first (depends on the size of slice. as function recursion proceeds, it will decrease in half), and other code lines have constant time (O(1)). 
+  We can consider the worst recursion count for this code to analyze the Big-O notation of this. 
+  In this function, binarySearch_1(), the input list size decreases about in half when recursion occurs.
+  At first call of the binarySearch_1(), the list size (also it means the number of elements) is N.
+  And then, the second call of the functon, the number of elements are reduced to almost N/2. (we don't consider the constants because it will be ignored in Big-O notation)
+  After that, the third call of the function, the number of elements are reduced to almost N/4.
+  In the worst case, the function stops when the list size is 0 because there's no more elements to check.. If recursive function is called 'r'times after first execution,
+  The candidate data is N/(2)^r. And this indicates that N/(2)^r < 1.
+  So N < 2^r, which means r = log N + 1. 
+  Therefore, the Big-O notation is O(log N).
